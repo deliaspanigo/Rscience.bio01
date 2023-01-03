@@ -95,7 +95,7 @@ Rscience.bio01.clase02 <- function(){
   server <- function(input, output) {
 
 
-    observe({
+    observeEvent(input$File1, {
 
       sheet_names <- readxl::excel_sheets(input$File1$datapath)
 
@@ -105,8 +105,8 @@ Rscience.bio01.clase02 <- function(){
         selected = sheet_names[[1]]
       )
 
-    }) %>%
-      bindEvent(input$File1)
+    }) # %>%
+    # bindEvent(input$File1)
 
 
     # When the drop down meny is populated, read the selected sheet from the Excel
